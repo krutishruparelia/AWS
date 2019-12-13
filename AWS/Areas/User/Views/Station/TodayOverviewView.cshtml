@@ -1,0 +1,44 @@
+﻿@using System.Data
+@{
+    DataTable dt = new DataTable();
+    dt = ViewBag.ColumnNames;
+    DataTable dt1 = new DataTable();
+    dt1 = ViewBag.TodayOverview;
+
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <col>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <tr>
+                    <td rowspan="2"></td>
+                    @*@for (int i = 0; i < dt.Rows.Count - 1; i++)
+                        {
+                            <th colspan="3" scope="colgroup" style="text-align:center;">@dt.Rows[i][0].ToString()</th>
+                        }*@
+                </tr>
+                <tr>
+
+                    <th scope="col">Min</th>
+                    <th scope="col">Max</th>
+                    <th scope="col">Avg.</th>
+
+                </tr>
+                @for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    <tr>
+                        <th scope="row">@dt1.Rows[i][0].ToString()</th>
+
+                        @for (int j = 1; j < dt1.Columns.Count; j++)
+                        {
+                            <td>@dt1.Rows[i][j].ToString()</td>
+
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+}

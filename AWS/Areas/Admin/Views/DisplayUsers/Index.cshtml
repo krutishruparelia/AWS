@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+
+<div class="card">
+    <div class="card-header">
+        Users
+    </div>
+    <div class="card-body">
+        <div class="demo-container" style="align-self: center;display: flex;justify-content: center;">
+            <div id="data-grid-demo">
+                <div id="gridContainer" style="width:100%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var Userd = @Html.Raw(Json.Encode(ViewBag.UserData));
+    var rdata = @Html.Raw(Json.Encode(ViewBag.lkpRole));
+</script>
+<script src="~/Scripts/DisplayUser.js"></script>

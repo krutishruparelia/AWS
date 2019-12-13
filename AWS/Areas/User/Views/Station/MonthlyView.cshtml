@@ -1,0 +1,58 @@
+﻿@using System.Data
+@{
+    DataTable monthlygetCoulmns = new DataTable();
+    monthlygetCoulmns = ViewBag.MonthlyColumnNames;
+    int position = 1;
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs nav-tabs-primary">
+                        @for (int i = 0; i < monthlygetCoulmns.Rows.Count - 1; i++)
+                        {
+                            var name = monthlygetCoulmns.Rows[i][0].ToString().Replace(" ", "");
+                            if (i == 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#Monthly_@name"><i class="icon-home"></i> <span class="hidden-xs">@monthlygetCoulmns.Rows[i][0].ToString()</span></a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#Monthly_@name"><i class="icon-home"></i> <span class="hidden-xs">@monthlygetCoulmns.Rows[i][0].ToString()</span></a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        @for (int i = 0; i < monthlygetCoulmns.Rows.Count - 1; i++)
+                        {
+                            var tabname = monthlygetCoulmns.Rows[i][0].ToString().Replace(" ", "");
+                            if (i == 0)
+                            {
+
+                                <div id="Monthly_@tabname" class="container tab-pane active">
+                                    @Html.Action("MonthlyGraph", new { data = monthlygetCoulmns.Rows[i][0].ToString(), Position = position })
+                                </div>
+                            }
+                            else
+                            {
+                                <div id="Monthly_@tabname" class="container tab-pane">
+                                    @Html.Action("MonthlyGraph", new { data = monthlygetCoulmns.Rows[i][0].ToString(), Position = position })
+                                </div>
+                            }
+                            position++;
+                            position++;
+                            position++;
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<div class="card">
+    <div class="card-header">
+        ParameterMaster
+    </div>
+    <div class="card-body">
+        <div class="demo-container" style="align-self: center;display: flex;justify-content: center;">
+            <div id="data-grid-demo">
+                <div id="gridContainer" style="width:100%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var Parameterd = @Html.Raw(Json.Encode(ViewBag.Parameterdata));
+    var sensord = @Html.Raw(Json.Encode(ViewBag.Sensordata));
+
+</script>
+<script src="~/Scripts/Parameter.js"></script>

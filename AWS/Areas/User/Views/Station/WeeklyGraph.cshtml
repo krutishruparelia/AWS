@@ -1,0 +1,70 @@
+﻿@{
+    var name1 = ViewBag.WeeklyGraphName;
+    var shownameweek = name1.Replace(" ", "") + "_Week";
+    var yedata = Html.Raw(Json.Encode(ViewBag.weekData));
+    <div class="demo-container">
+        <div id="chart-demo">
+            <div id="Yesterday_@shownameweek" style="width:880px">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var @shownameweek = @Html.Raw(Json.Encode(ViewBag.weekData));
+
+    var types = ["line", "stackedline", "fullstackedline"];
+    $(function() {
+        var chart = $("#Yesterday_@shownameweek").dxChart({
+        palette: "Violet",
+            dataSource: @shownameweek,
+            commonSeriesSettings: {
+                argumentField: "Time",
+                type: types[0]
+            },
+            margin: {
+            bottom: 20
+            },
+            argumentAxis: {
+            valueMarginsEnabled: false,
+                discreteAxisDivisionMode: "crossLabels",
+                grid: {
+                visible: true
+                }
+            },
+            series: [
+                { valueField: "min", name: "Minimum" },
+                { valueField: "max", name: "Maximum" },
+                { valueField: "avg", name: "Average" },
+            ],
+            scrollBar: {
+                visible: true
+            },
+            zoomAndPan: {
+                argumentAxis: "both"
+            },
+            legend: {
+            verticalAlignment: "bottom",
+                horizontalAlignment: "center",
+                itemTextPosition: "bottom"
+            },
+            title: {
+            text: "@name1"
+            },
+            "export": {
+            enabled: true
+            },
+            tooltip: {
+            enabled: true
+            }
+        }).dxChart("instance");
+
+        $("#types").dxSelectBox({
+        dataSource: types,
+            value: types[0],
+            onValueChanged: function(e) {
+                chart.option("commonSeriesSettings.type", e.value);
+            }
+        });
+    });
+    </script>}
+

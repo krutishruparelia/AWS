@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+       Station Configuration
+    </div>
+    <div  class="card-body">
+        <div class="demo-container">
+            <div id="container">
+                <form id="form" method="post" action="" enctype="multipart/form-data">
+                    <h3>Profile Settings</h3>
+                    <div class="dx-fieldset">
+                        <div class="dx-field">
+                            <div class="dx-field-label">Station ID:</div>
+                            <div class="dx-field-value" id="statinonid"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Station Name:</div>
+                            <div class="dx-field-value" id="staionname"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Latitude:</div>
+                            <div class="dx-field-value" id="latitude"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Longnitude:</div>
+                            <div class="dx-field-value" id="longnitude"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">City:</div>
+                            <div class="dx-field-value" id="city"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">District:</div>
+                            <div class="dx-field-value" id="district"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">State:</div>
+                            <div class="dx-field-value" id="state"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Tahesil</div>
+                            <div class="dx-field-value" id="tahesil"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Block:</div>
+                            <div class="dx-field-value" id="Block"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Village:</div>
+                            <div class="dx-field-value" id="village"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Image:</div>
+                            <div class="dx-field-value" id="image"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Address:</div>
+                            <div class="dx-field-value" id="address"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Bank:</div>
+                            <div class="dx-field-value" id="bank"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Bus Stand:</div>
+                            <div class="dx-field-value" id="busstand"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Railway Station:</div>
+                            <div class="dx-field-value" id="railstation"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Airport:</div>
+                            <div class="dx-field-value" id="airport"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Other Information:</div>
+                            <div class="dx-field-value" id="otherinfo"></div>
+                        </div>
+                        <div class="dx-field">
+                            <div class="dx-field-label">Profile:</div>
+                            <div class="dx-field-value" id="profile"></div>
+                        </div>
+                    </div>
+                    <div id="fileuploader-container">
+                        <div id="file-uploader"></div>
+                    </div>
+                    <div id="partialview">
+
+                    </div>
+                    <div id="button"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var statonprofile = @Html.Raw(Json.Encode(ViewBag.stprofile));
+    @*var staionparam = @Html.Raw(Json.Encode(ViewBag.stparam));*@
+</script>
+<script src="~/Scripts/Station.js"></script>

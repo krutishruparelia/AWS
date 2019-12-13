@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Site";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="demo-container">
+    <div id="gridContainer"></div>
+</div>
+<script>
+  var SiteSurveyd = @Html.Raw(Json.Encode(ViewBag.SiteSurvey));
+</script>
+<script src="~/Scripts/SiteSurvejData.js"></script>
+<script src="~/Scripts/SiteSurvey.js"></script>

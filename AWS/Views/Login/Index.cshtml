@@ -1,0 +1,55 @@
+﻿@model AWS.Models.tbl_User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AWS Login</title>
+    @Styles.Render("~/Content/bundle")
+    @Styles.Render("~/Content/DevExtremeBundle")
+    @Scripts.Render("~/Scripts/bundle")
+    @Scripts.Render("~/Scripts/DevExtremeBundle")
+
+    <link href="~/Content/Login.css" rel="stylesheet" />
+</head>
+<body style="padding-top:0px;overflow-x:hidden">
+    <div class="row">
+        <div class="col-md-6">
+                <div id="map"></div>
+        </div>
+        <div class="col-md-6">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                        <img src="~/Images/azista.png" id="icon" alt="User Icon" />
+                    </div>
+                    <!-- Login Form -->
+                    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                    {
+                        @Html.TextBoxFor(m => m.Username, new { @class = "fadeIn second", @id = "login",@placeholder="Username" })
+                        //<input type="text" id="login" class="fadeIn second" placeholder="login">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "fadeIn third", @id = "password", @style= "-webkit-text-security: circle;",@placeholder = "Password" })
+                        <input type="submit" class="fadeIn fourth" value="Log In">
+                    }
+                    <!-- Remind Passowrd -->
+                    <div id="formFooter">
+                        <a class="underlineHover" href="#">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var mapd = @Html.Raw(Json.Encode(ViewBag.MapData));
+    </script>
+    <script src="~/Scripts/LoginMap.js">
+
+    </script>
+</body>
+</html>

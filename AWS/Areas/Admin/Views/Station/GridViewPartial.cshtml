@@ -1,0 +1,16 @@
+﻿@using AWS.Models
+@{
+   
+    <div class="demo-container" style="align-self: center;display: flex;justify-content: center;">
+        <div id="data-grid-demo">
+            <div id="sTgridContainer" style="width:100%"></div>
+        </div>
+    </div>
+
+    <script>
+        var staionparam = @Html.Raw(Json.Encode(ViewBag.stparam));
+
+    </script>
+
+    <script src="~/Scripts/StationConfigure.js"></script>
+}

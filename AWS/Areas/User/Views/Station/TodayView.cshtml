@@ -1,0 +1,69 @@
+﻿@using System.Data
+@{
+    DataTable getCoulmns = new DataTable();
+    getCoulmns = ViewBag.ColumnNames;
+    int position = 4;
+    <style>
+        #gauge {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs nav-tabs-primary">
+                        @*<li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#CurrentView"><i class="icon-home"></i> <span class="hidden-xs">Current View</span></a>
+                        </li>*@
+                        @for (int i = 0; i < getCoulmns.Rows.Count - 1; i++)
+                        {
+                            var name = getCoulmns.Rows[i][0].ToString().Replace(" ", "");
+                            if (i == 0)
+                            {
+                                <li class="nav-item ">
+                                    <a class="nav-link active" data-toggle="tab" href="#Today_@name"><i class="icon-home"></i> <span class="hidden-xs">@getCoulmns.Rows[i][0].ToString()</span></a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#Today_@name"><i class="icon-home"></i> <span class="hidden-xs">@getCoulmns.Rows[i][0].ToString()</span></a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                    
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        @*<div id="CurrentView" class="container tab-pane active">
+                            @Html.Action("CurrentViewGauge")
+                        </div>*@
+                        @for (int i = 0; i < getCoulmns.Rows.Count - 1; i++)
+                        {
+                            var tabname = getCoulmns.Rows[i][0].ToString().Replace(" ", "");
+                            if (i == 0)
+                            {
+
+                                <div id="Today_@tabname" class="container tab-pane active">
+                                    @Html.Action("TodayGraph", new { data = getCoulmns.Rows[i][0].ToString(), Position = position })
+                                </div>
+                            }
+                            else
+                            {
+                                <div id="Today_@tabname" class="container tab-pane">
+                                    @Html.Action("TodayGraph", new { data = getCoulmns.Rows[i][0].ToString(), Position = position })
+                                </div>
+                            }
+                            position++;
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

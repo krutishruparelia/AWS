@@ -1,0 +1,67 @@
+﻿@{
+    var name = ViewBag.GraphName;
+    var showname = name.Replace(" ", "");
+    var tdata = Html.Raw(Json.Encode(ViewBag.TodayData));
+    <div class="demo-container">
+        <div id="chart-demo">
+            <div id="Today_@showname">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var @showname = @Html.Raw(Json.Encode(ViewBag.TodayData));
+
+    var types = ["line", "stackedline", "fullstackedline"];
+    $(function() {
+        var chart = $("#Today_@showname").dxChart({
+        palette: "Violet",
+            dataSource: @showname,
+            commonSeriesSettings: {
+                argumentField: "Time",
+                type: types[0]
+            },
+            margin: {
+            bottom: 20
+            },
+            argumentAxis: {
+            valueMarginsEnabled: false,
+                discreteAxisDivisionMode: "crossLabels",
+                grid: {
+                visible: true
+                }
+            },
+            series: [
+                { valueField: "value", name: "@name" },
+            ],
+            scrollBar: {
+                visible: true
+            },
+            zoomAndPan: {
+                argumentAxis: "both"
+            },
+            legend: {
+            verticalAlignment: "bottom",
+                horizontalAlignment: "center",
+                itemTextPosition: "bottom"
+            },
+            title: {
+            text: "@name"
+            },
+            "export": {
+            enabled: true
+            },
+            tooltip: {
+            enabled: true
+            }
+        }).dxChart("instance");
+
+        $("#types").dxSelectBox({
+        dataSource: types,
+            value: types[0],
+            onValueChanged: function(e) {
+                chart.option("commonSeriesSettings.type", e.value);
+            }
+        });
+    });
+    </script>}

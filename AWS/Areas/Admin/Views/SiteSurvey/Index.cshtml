@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<style>
+    .second-group {
+        background-color: rgba(191, 191, 191, 0.15);
+        width :100%;
+    }
+
+</style>
+<div class="card">
+    <div class="card-body">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Site Information
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">Project Name :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Site Name :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">State :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">District :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Basin :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Teshil/Taluk :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">Block :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Village :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">City :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">Date of Visit :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Latitude :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Longitude :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">Site Survey Done By :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Site In charge :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                                <div class="col-sm">
+                                    <label class="form-check-label">Site care taker :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label class="form-check-label">Address :</label>&nbsp;&nbsp;<textarea class="form-control"> </textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Site Status
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <label class="form-check-label">Spefic Procedures :</label>&nbsp;&nbsp;<input type="text" class="form-control" />
+                            </div>
+                            <div class="col-sm">
+                                <label class="form-check-label">Site Cleaning :</label>&nbsp;&nbsp;<select class="form-control"><option>Requried</option><option>Not Requried</option></select>
+                            </div>
+                            <div class="col-sm">
+                                <label class="form-check-label">Civil Work :</label>&nbsp;&nbsp;<select class="form-control"><option>Requried</option><option>Not Requried</option></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm">
+                                <label class="form-check-label">Civil Material :</label>&nbsp;&nbsp;<select class="form-control"><option>Available</option><option>Not Available</option></select>
+                            </div>
+                            <div class="col-sm">
+                                <label class="form-check-label">List of GSM Network :</label>&nbsp;&nbsp;<select class="form-control" multiple="multiple" id="multiselect"><option>Requried</option><option>Not Requried</option></select>
+                            </div>
+                            <div class="col-sm">
+                                <label class="form-check-label">Distance between 230VAC :</label><input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Site Type
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                            Photogrpahs
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="demo-container">
+            <div class="long-title"><h3>Site Survey</h3></div>
+            <div id="form-container">
+                <div id="form"></div>
+            </div>
+        </div>
+        <div id="tabs">
+            <div class="tabs-container"></div>
+            <div class="content  dx-fieldset">
+                <div class="dx-field">
+                    <div class="dx-field-label">Selected index:</div>
+                    <div class="dx-field-value">
+                        <div id="selectbox" style="display:none">
+                        </div>
+                    </div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Selected content:</div>
+                    <div class="dx-field-value-static left-aligned">
+                        User tab content
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#multiselect').multiselect({
+            buttonWidth: '160px',
+            includeSelectAllOption: true,
+            nonSelectedText: 'Select an Option'
+        });
+    });
+    function getSelectedValues() {
+        var selectedVal = $("#multiselect").val();
+        for (var i = 0; i < selectedVal.length; i++) {
+            function innerFunc(i) {
+                setTimeout(function () {
+                    location.href = selectedVal[i];
+                }, i * 2000);
+            }
+            innerFunc(i);
+        }
+    }
+
+
+</script>
+<script src="~/Scripts/SiteSurvejData.js"></script>
+<script src="~/Scripts/SiteSurvey.js"></script>
