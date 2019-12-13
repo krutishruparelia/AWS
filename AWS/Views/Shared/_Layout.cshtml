@@ -75,9 +75,7 @@
                 </div>
                 <div id="user-dropdown" class="collapse">
                     <ul class="user-setting-menu">
-                        <li><a href="javaScript:void();"><i class="icon-user"></i>  My Profile</a></li>
-                        <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
-                        <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
+                        <li><a href="@Url.Action("Logout", "Login", new { area = "" })"><i class="icon-power"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -95,7 +93,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="@Url.Action("Index", "DisplayUsers", new { area = "Admin" })" class="waves-effect">
                         <i class="zmdi zmdi-card-travel"></i>
                         <span>Users</span>
                     </a>

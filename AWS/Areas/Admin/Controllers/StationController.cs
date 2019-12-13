@@ -26,7 +26,6 @@ namespace AWS.Areas.Admin.Controllers
                     name = item.Name,
                     value = item.Name
                 });
-
             }
             ViewBag.stprofile = lstprof;
             return View();
@@ -39,8 +38,6 @@ namespace AWS.Areas.Admin.Controllers
             string getgain = "";
             string getoffset = "";
             string getserialNumber = "";
-
-
             ViewBag.Image = "[No photo]";
             if (photo != null)
             {
@@ -117,7 +114,7 @@ namespace AWS.Areas.Admin.Controllers
                 createQuery += "[" + data + "]" + " varchar(500),";
             }
             var finalParameterquery = createQuery.TrimEnd(',');
-            var querySql = "Create table tbl_StationData_" + stationid + "(" + finalParameterquery + ")";
+            var querySql = "Create table tbl_StationData_" + stationid + "(ID int not null identity(1,1)," + finalParameterquery + ")";
             dbs.CreateTable(querySql, "WEB");
             return View();
         }

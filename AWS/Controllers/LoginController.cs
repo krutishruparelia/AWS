@@ -43,6 +43,8 @@ namespace AWS.Controllers
                 else
                 {
                     var getUserid = db.tbl_User.Where(x => x.Username == username).FirstOrDefault();
+                    Session.Add("name", getUserid.FirstName + " " + getUserid.LastName);
+                    
                     Session.Add("U_userid", getUserid.ID);
                     return RedirectToAction("Index", "Station", new { area = "User" });
                 }
@@ -52,6 +54,16 @@ namespace AWS.Controllers
                 return View();
             }
            
+        }
+        public ActionResult Logout()
+        {
+            Session.Remove("userid");
+            return RedirectToAction("Index");
+        }
+        public ActionResult UserLogout()
+        {
+            Session.Remove("U_userid");
+            return RedirectToAction("Index");
         }
     }
 }

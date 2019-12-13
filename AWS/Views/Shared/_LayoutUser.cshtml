@@ -56,14 +56,13 @@
             <div class="user-details">
                 <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
                     <div class="media-body">
-                        <h6 class="side-user-name">Admin</h6>
+                        <h6 class="side-user-name">@Session["name"].ToString()</h6>
                     </div>
                 </div>
                 <div id="user-dropdown" class="collapse">
                     <ul class="user-setting-menu">
-                        <li><a href="javaScript:void();"><i class="icon-user"></i>  My Profile</a></li>
-                        <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
-                        <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
+                      
+                        <li><a href="@Url.Action("UserLogout","Login", new {area = "" })"><i class="icon-power"></i> Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,13 +86,14 @@
                                 @foreach (var item2 in subme)
                                 {
                                     var station = objDb.tbl_StationMaster.Where(x => x.District == item2.District && x.Profile == item1.Name).ToList();
+                                    var countStation = objDb.tbl_StationMaster.Where(x => x.District == item2.District && x.Profile == item1.Name).Count();
                                     <li>
                                         <a href="dashboard-human-resources.html"><i class="zmdi zmdi-dot-circle-alt"></i>@item2.District<i class="fa fa-angle-left pull-right"></i></a>
                                         <ul class="sidebar-submenu">
                                             @foreach (var item3 in station)
                                             {
                                                 <li>
-                                                    <a href="@Url.Action("StationView", new { id = item3.StationID })"><i class="zmdi zmdi-dot-circle-alt"></i> @item3.Name @item3.StationID </a>
+                                                    <a href="@Url.Action("StationView", new { id = item3.StationID })"><i class="zmdi zmdi-dot-circle-alt"></i><span> @item3.Name @item3.StationID</span> <small class="badge float-right badge-warning">@countStation</small> </a>
                                                 </li>
                                             }
                                         </ul>
@@ -131,7 +131,7 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav align-items-center right-nav-link">
+                @*<ul class="navbar-nav align-items-center right-nav-link">
                     <li class="nav-item dropdown-lg">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
                             <i class="fa fa-envelope-open-o"></i><span class="badge badge-primary badge-up">12</span>
@@ -276,7 +276,7 @@
                             <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
                         </ul>
                     </li>
-                </ul>
+                </ul>*@
             </nav>
         </header>
         <!--End topbar header-->

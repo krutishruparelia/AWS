@@ -84,7 +84,7 @@ namespace AWS.Models
                     //Sbu_Web.DataSource = @"AZISTAAERO039\SQLEXPRESS";
                    // Sbu_Web.DataSource = @"AZISTAAERO011\SQLEXPRESS";
                     //Sbu_Web.DataSource = @"SERVER2\SQLEXPRESS";
-                    Sbu_Web.DataSource = @"172.22.1.131,1433";
+                    Sbu_Web.DataSource = @"3.13.189.69";
                     //Sbu_Web.InitialCatalog = "myDb";
                     Sbu_Web.InitialCatalog = "AWS";
                     //Sbu_Web.InitialCatalog = "Remote_AITS_DB";
@@ -95,8 +95,8 @@ namespace AWS.Models
                     Sbu_Web.ConnectTimeout = 0;
 
 
-                    Sbu_Web.UserID = "AWS";
-                    Sbu_Web.Password = "Azista@1";
+                    Sbu_Web.UserID = "sa";
+                    Sbu_Web.Password = "azista@1";
 
                     GlobalConnection_Web.ConnectionString = Sbu_Web.ConnectionString;
                     GlobalConnection_Web.Open();
